@@ -15,6 +15,19 @@ const Nav = () => {
       <div className="button-grid-item">
         <button className="welcome-btn">Info</button>
       </div>
+
+      <div className="button-grid-item">
+        <Link to='/clock'><button className="welcome-btn">Clock</button></Link>
+      </div>
+
+      <div className="button-grid-item">
+        <Link to='/lock'><button className="welcome-btn">Lock</button></Link>
+      </div>
+
+      <div className="button-grid-item">
+        <Link to='/envelope'><button className="welcome-btn">Envelope</button></Link>
+      </div>
+
       </div>
     </Fragment>
   )
