@@ -1,5 +1,19 @@
 import React from 'react';
 
+function Result(props) {
+  const { flag } = props;
+
+  if(flag === 1){
+    return (
+      <h1>Success!</h1>
+    )
+  } else if(flag === 2){
+    return <h1>Hint: Try looking in the console!</h1>
+  } else {
+    return null;
+  }
+}
+
 export default class Lock extends React.Component{
 
   constructor(){
@@ -9,7 +23,8 @@ export default class Lock extends React.Component{
       two: '',
       three: '',
       four: '',
-      solution: 1337
+      solution: 1337,
+      flag: 0
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -35,28 +50,40 @@ export default class Lock extends React.Component{
     submission *= 1;
     console.log("input: ", submission);
     console.log("solution: ", this.state.solution);
-
-    if(this.state.solution === submission){
-      console.log('success!');
+    
+    if(submission === this.state.solution){
+      this.setState({
+        flag: 1
+      })
     } else {
-      console.log('invalid entry');
+      this.setState({
+        flag: 2
+      })
     }
   }
 
 
   render(){
-    const { one, two, three, four } = this.state;
 
     return (
       <div>
-      <form onSubmit={this.onSubmit} >
+        <br />
+        <br />
+        <h1>Code:</h1>
+        <form onSubmit={this.onSubmit} >
         <input type="text" name="one" maxLength="1" onChange={this.onChange}/>
+        <br />
         <input type="text" name="two" maxLength="1" onChange={this.onChange}/>
+        <br />
         <input type="text" name="three" maxLength="1" onChange={this.onChange}/>
+        <br />
         <input type="text" name="four" maxLength="1" onChange={this.onChange}/>
+        <br />
         <button>Submit</button>
       </form>
-      
+      <br />
+      <br />
+      <Result flag={this.state.flag} />
       </div>
     )
   }
