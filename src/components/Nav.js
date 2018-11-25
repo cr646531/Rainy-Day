@@ -28,6 +28,10 @@ const Nav = () => {
         <Link to='/envelope'><button className="welcome-btn">Envelope</button></Link>
       </div>
 
+      <div className="button-grid-item">
+        <Link to='/opening'><button className="welcome-btn">Opening</button></Link>
+      </div>
+
       </div>
     </Fragment>
   )

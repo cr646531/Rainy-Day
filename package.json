@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server -c-1 ./public",
-    "build-watch": "webpack -w",
-    "start": "npm run build-watch & npm run serve"
+    "postinstall": "npm run webpack",
+    "webpack": "webpack",
+    "build": "npm run webpack -- --watch --mode=development",
+    "start:dev": "npm run build & nodemon server/server.js --ignore dist --ignore src",
+    "start": "node server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,8 +24,12 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "file-loader": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-sound": "^1.2.0"
   }
 }

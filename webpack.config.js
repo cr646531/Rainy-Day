@@ -13,6 +13,13 @@ module.exports = {
         test: /jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+        query: {
+          name: '[name].[ext]'
+        }
       }
     ]
   }

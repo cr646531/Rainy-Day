@@ -8,7 +8,7 @@ import Clock from './Clock';
 import Lock from './Lock';
 import Envelope from './Envelope';
 import Letter from './Letter';
-
+import Opening from './Opening';
 
 class App extends Component {
   
@@ -24,6 +24,7 @@ class App extends Component {
           <Route path="/lock" component={ Lock } />
           <Route path="/envelope" component={ Envelope } />
           <Route path="/letter" component={ Letter } />
+          <Route path='/opening' component={ Opening } />
         </Fragment>
       </Router>
     )
